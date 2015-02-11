@@ -5,7 +5,7 @@ email: yijo1001@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Hi, I’m a professional web developer.
   I love being minimal and creative.
-baseurl: "/xeasy" # the subpath of your site, e.g. /blog/
+baseurl: "/" # the subpath of your site, e.g. /blog/
 url: "http://xEasy.github.io" # the base hostname & protocol for your site
 logourl: /assets/images/logo.png # Site logo
 author: "xEasy"
