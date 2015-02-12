@@ -7,6 +7,7 @@ catagory:
 permalink: Rails源码加载方式
 meta_description: Rails源码加载方式
 browser_title: Rails源码加载方式
+comments: true
 ---
 
 在Rails里有三种加载源码的方式：
