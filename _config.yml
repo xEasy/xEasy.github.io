@@ -18,10 +18,6 @@ theme:
   social:
     github: xEasy
     twitter: rice404
-    # facebook: gayanvirajith
-    # gplus: +gayanvirajith
-    # dribble: gayanvirajith
-    # pinterest: gayanvirajith
 
   # Enable share buttons on post footer
   show_share_buttons: true
