@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails源码加载方式
-catagory:
+category:
 - rails
 - ruby
 permalink: Rails源码加载方式
@@ -12,14 +12,16 @@ comments: true
 
 在Rails里有三种加载源码的方式：
 
- - 使用 `require` ，这个是ruby的方式。
- - 基于 `AcitiveSupport` 的 `const_missing` 机制。
+ * 使用 `require` ，这个是ruby的方式。
+
+ * 基于 `AcitiveSupport` 的 `const_missing` 机制。
    如果找不到某个常量（类 或者 模块），就会根据其名称，去加载对应的文件，同时添加到一个已经加载的常量的列表里。
    比如在代码里使用了 `Abc::Def`，那么 Rails 就会尝试加载 `abc/def.rb` 这个文件。
    文件的搜索路径在`ActiveSupport::Dependencies.autoload_paths`
    中，可以在 `application.rb` 中用`config.autoload_paths` 中添加。
    Rails-3 默认没有 'lib' 目录哦。所以默认情况下，使用这种方式加载不了。
- - 使用 require_dependency 加载。
+
+ * 使用 require_dependency 加载。
 
 使用第一种方式，应用启动后，只加载一次。
 
