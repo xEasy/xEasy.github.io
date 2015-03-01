@@ -31,6 +31,7 @@ theme:
   # Google Analytics/Webmaster key, leave blank to ignore
   google_analytics_key:
   google_webmaster_key:
+  baidu_key: 88533506e3127e62e67a07bb7b985df3
 
 # Build settings
 markdown: kramdown
