@@ -1,9 +1,6 @@
 ---
 layout: post
 title: 写在新年之际
-category:
-- rails
-- ruby
 permalink: welcome-to-new-year
 meta_description: 写在新年之际
 browser_title: 写在新年之际
