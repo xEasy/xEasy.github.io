@@ -11,7 +11,7 @@ browser_title: Angular
 comments: true
 ---
 
-####Angular是个什么玩意？
+###Angular
 
   * 一个前端MV*框架
   * 解决了JS与HTML交互的障碍
@@ -19,13 +19,13 @@ comments: true
   * 让APP构建清晰简洁
   * 数据绑定，依赖注入
 
-#####优势
+####优势
 
   * 操作HTML DOM
   * Data <=> UI 数据交互
   * 内建Services
 
-####开始
+###开始
 
   * ng-app ng的启动指令，通常应该在根节点
   * ng-model 对username进行数据绑定
@@ -37,23 +37,23 @@ comments: true
   * VC里面都可以访问
   * 层次结构
 
-####Data binding & Ajax
+###Data binding & Ajax
 
   * Data Binding in Classical Template Systems
   ![classify data binding](/assets/images/ng-binding.png)
 
   * Data Binding in Angular Templates
-  ![ng data binding](/assets/images/.png)
+  ![ng data binding](/assets/images/ng-binding.png)
 
   * Ajax ($http)
 
-####Directives & Expressions
+###Directives & Expressions
 
   * ngBind, ngModel, ngClass
   * 绑定在DOM元素上的函数，它可以调用方法、定义行为、绑定controller及$scope对象、操作DOM
   * NG的HTML compile 会通过 Directice 为DOM定义一定特定的行为或者改变它或者它的子节点
 
-```HTML
+```
 <div ng-controller="Controller">
   Hello <input ng-model='name'> <hr/>
   <span ng-bind="name"></span> <br/>
@@ -71,12 +71,12 @@ comments: true
     * 没有函数控制流程
     * 接受多个过个过滤器 `{{ username | uppercase }} -> WORLD`
 
-####Services
+###Services
 
   * 单例
   * 存在于application的整个生命周期
   * 保存数据，controller 之间共享数据
 
-####Routing
+###Routing
 
   * $routeProvider
