@@ -1,79 +1,37 @@
 ---
 layout: post
-title: Angular
+title: Rails源码加载方式
 category:
-- angular
-- javascript
-- html
-permalink: angular-1
-meta_description: Angular
-browser_title: Angular
+- rails
+- ruby
+permalink: Rails源码加载方式
+meta_description: Rails源码加载方式
+browser_title: Rails源码加载方式
 comments: true
 ---
 
-###Angular
----
+在Rails里有三种加载源码的方式：
 
-  * 一个前端MV*框架
-  * 解决了JS与HTML交互的障碍
-  * 直接使用HTML作为模板语言，扩展HTML语法
-  * 让APP构建清晰简洁
-  * 数据绑定，依赖注入
+ * 使用 `require` ，这个是ruby的方式。
 
-###优势
----
+ * 基于 `AcitiveSupport` 的 `const_missing` 机制。
+   如果找不到某个常量（类 或者 模块），就会根据其名称，去加载对应的文件，同时添加到一个已经加载的常量的列表里。
+   比如在代码里使用了 `Abc::Def`，那么 Rails 就会尝试加载 `abc/def.rb` 这个文件。
+   文件的搜索路径在`ActiveSupport::Dependencies.autoload_paths`
+   中，可以在 `application.rb` 中用`config.autoload_paths` 中添加。
+   Rails-3 默认没有 'lib' 目录哦。所以默认情况下，使用这种方式加载不了。
 
-  * 操作HTML DOM
-  * Data <=> UI 数据交互
-  * 内建Services
+ * 使用 require_dependency 加载。
 
-###开始
----
+使用第一种方式，应用启动后，只加载一次。
 
-  * ng-app ng的启动指令，通常应该在根节点
-  * ng-model 对username进行数据绑定
-  * {{ 数据。。。 }}  模板显示username这个属性
+使用后两种，在development 模式下，每次处理新的请求，都会重新加载。
 
-###Angular $scope
----
+但是要注意，后两种加载的时候，会把源码所在的文件展开为绝对路径，再去 require 。
+所以，使用Ruby-1.8.7 的时候要注意了：对于同一个文件，使用不同路径 require 文件，Ruby-1.8.7 会加载多次。
 
-  * 数据模型、js对象
-  * VC里面都可以访问
-  * 层次结构
+所以项目中应该统一使用一种方式加载。
 
-###Data binding & Ajax
----
 
-  * Data Binding in Classical Template Systems
-  ![classify data binding](/assets/images/ng-binding.png)
-
-  * Data Binding in Angular Templates
-  ![ng data binding](/assets/images/ng-binding.png)
-
-  * Ajax ($http)
-
-###Directives & Expressions
----
-
-  * ngBind, ngModel, ngClass
-  * 绑定在DOM元素上的函数，它可以调用方法、定义行为、绑定controller及$scope对象、操作DOM
-  * NG的HTML compile 会通过 Directice 为DOM定义一定特定的行为或者改变它或者它的子节点
-  * 自定义directive
-
-  * Expressions  `{{ username }}`
-    * 所有表达式都在本地$scope的context中执行
-    * 其中的错误不会被抛出
-    * 没有函数控制流程
-    * 接受多个过个过滤器 `{{ username | uppercase }} -> WORLD`
-
-###Services
----
-
-  * 单例
-  * 存在于application的整个生命周期
-  * 保存数据，controller 之间共享数据
-
-###Routing
----
-
-  * $routeProvider
+另外：如果想让 `ActiveSupport::Dependencies.autoload_paths`
+中的某个目录的子目录只加载一次，可以添加到 `config.autoload_once_paths` 中。
