@@ -1,13 +1,12 @@
 ---
 layout: post
-title: Easy Tool Talk 1
+title: Easy Tool Talk 2
 category:
 - ruby-tool
 - talk
-permalink: easy-tool-talk-one
-meta_description: Easy Tool Talk 1
-browser_title: Easy Tool Talk 1
-comments: true
+permalink: easy-tool-talk-to
+meta_description: Easy Tool Talk 2
+browser_title: Easy Tool Talk 2
 ---
 
 ### VIM
@@ -25,6 +24,10 @@ comments: true
 - [Config redis as a cache store](http://redis.io/topics/config#configuring-redis-as-a-cache)
 
 - [Rails 101](http://growth.xdite.net/courses/rails-101) Xdite 出品的Rails开发初级教程，适合入门学者
+
+- [merit](https://github.com/merit-gem/merit) merit是一个应用与Rails的积分记录系统
+
+- [paper_trail](https://github.com/airblade/paper_trail) Track changes to your models' data. Good for auditing or versioning.
 
 ### Front
 
